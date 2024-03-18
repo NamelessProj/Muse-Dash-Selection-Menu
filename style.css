@@ -1,0 +1,351 @@
+/* ======== RESET ======== */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    hanging-punctuation: first last;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    height: 100svh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+p {
+    max-width: 75ch;
+    text-wrap: pretty;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+.sr-only {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+
+/* ======== REDUCED MOTION: NO PREFERENCE ======== */
+
+@media (prefers-reduced-motion: no-preference) {
+    html,
+    :has(:target) {
+        scroll-behavior: smooth;
+    }
+}
+
+
+
+/* ======== CSS ======== */
+
+
+
+main{
+    height: 100%;
+    background: cadetblue;
+    overflow: hidden;
+}
+
+
+/* ======== MENU TOP ======== */
+
+#menuTop{
+    --_clip-size: 25px;
+
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 80px;
+    background: #2e2159;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ==== PAUSE/RESUME BTN ==== */
+#pauseResumeBtn{
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(135deg, #ec00ff, #8033bd);
+    border: none;
+    clip-path: polygon(0 0, calc(100% - var(--_clip-size)) 0, 100% 100%, 0 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #601580;
+
+    cursor: pointer;
+}
+#pauseResumeBtn svg{
+    height: 50%;
+}
+#btnPlay{
+    display: none;
+}
+#pauseResumeBtn.paused #btnPlay{
+    display: block;
+}
+#pauseResumeBtn.paused #btnPause{
+    display: none;
+}
+
+/* ==== RIGHT DIV ==== */
+#menuTopRight{
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(-135deg, #ec00ff, #8033bd);
+    clip-path: polygon(var(--_clip-size) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ==== MENU TOP TITLE ==== */
+#menuTopTitle{
+    position: relative;
+    width: 460px; /* 400px */
+    height: calc(100% + 15px);
+    background: linear-gradient(#41629a, #348fad, #41629a);
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--_clip-size)) 100%, var(--_clip-size) 100%);
+}
+#menuTopTitle .title-wrapper{
+    height: calc(100% - 8px);
+    width: calc(100% - 50px);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2e2159;
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--_clip-size)) 100%, var(--_clip-size) 100%);
+}
+#menuTopTitle .title{
+    height: calc(100% - 5px);
+    width: calc(100% - 10px);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #8033bd, #ec00ff, #8033bd);
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--_clip-size)) 100%, var(--_clip-size) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ======== MENU BOTTOM ======== */
+
+#menuBottom{
+    --_clip-size: 25px;
+
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 2;
+}
+#menuBottomBg{
+    position: relative;
+    height: 50px;
+    background: #27184d;
+}
+#menuBottomBg::before{
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: -25px;
+    height: 25px;
+    background: #3c286f;
+}
+
+/* ==== MENU BOTTOM LINKS ==== */
+#menuBottomLinks{
+    padding: 2px 30px;
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    translate: -50% 0;
+    background: #3c286f;
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--_clip-size)) 100%, var(--_clip-size) 100%);
+
+    display: flex;
+    gap: 15px;
+}
+#menuBottomLinks a{
+    height: 60px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #2f0f4f;
+    background: #3d1d61;
+    border: 8px solid #2f0f4f;
+}
+#menuBottomLinks a:hover{
+    color: #8033bd;
+}
+#menuBottomLinks a svg{
+    height: 30px;
+}
+
+/* ==== MENU BOTTOM TITLE ==== */
+#menuBottomTitle{
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    translate: -50% -25%;
+    padding-inline: 70px;
+    color: #fff;
+    background: #3c286f;
+    clip-path: polygon(var(--_clip-size) 0, calc(100% - var(--_clip-size)) 0, 100% 100%, 0 100%);
+}
+
+
+
+/* ======== ARROWS ======== */
+
+#arrowsContainer{
+    --_clip-size: 25px;
+
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    translate: -50% 0;
+    height: 60px;
+    display: flex;
+    gap: 200px;
+}
+#arrowsContainerBg{
+    position: absolute;
+    inset: 0;
+    background: rgb(39 24 77 / .9);
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--_clip-size)) 100%, var(--_clip-size) 100%);
+}
+#arrowsContainer button{
+    position: relative;
+    height: 100%;
+    width: 400px;
+    border: none;
+    background: #8326ff;
+    translate: var(--_transX) 8px;
+    color: #6626c1;
+    cursor: pointer;
+}
+#arrowsContainer button:hover{
+    background: #ffa800;
+    color: #ffa800;
+}
+#arrowsContainer button:hover div{
+    background: #ffd700;
+}
+#arrowsContainer button div{
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 8px);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: #9c55ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#arrowsContainer button svg{
+    height: 40px;
+}
+
+/* ==== ARROW LEFT ==== */
+#arrowLeft{
+    --_transX: 15px;
+    clip-path: polygon(0 0, calc(100% - var(--_clip-size)) 0, 100% 100%, var(--_clip-size) 100%);
+}
+#arrowLeft div{
+    clip-path: polygon(0 0, calc(100% - var(--_clip-size)) 0, 100% 100%, var(--_clip-size) 100%);
+}
+
+/* ==== ARROW RIGHT ==== */
+#arrowRight{
+    --_transX: -15px;
+    clip-path: polygon(var(--_clip-size) 0, 100% 0, calc(100% - var(--_clip-size)) 100%, 0 100%);
+}
+#arrowRight div{
+    clip-path: polygon(var(--_clip-size) 0, 100% 0, calc(100% - var(--_clip-size)) 100%, 0 100%);
+}
+
+
+
+/* ======== SLIDER ======== */
+
+
+#projectsWrapper{
+    height: fit-content;
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    translate: 0 calc(-50% + 25px);
+    mask-image: linear-gradient(90deg, #0000, #000, #000, #0000);
+}
+#wrapperMenu{
+    overflow-x: hidden;
+}
+.carousel{
+    display: flex;
+    flex-wrap: nowrap;
+    transform: translateX(calc(-1 * var(--element-gap)));
+}
+.carousel .carousel-element{
+    min-width: calc(100% / var(--visible-elements));
+    margin-right: var(--element-gap);
+    transition: transform .5s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+.carousel .carousel-element > *{
+    background: orange;
+    height: 300px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: #000 solid 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    object-fit: cover;
+    filter: grayscale(1);
+
+    scale: .7;
+    transition: scale .5s ease, filter .5s ease;
+}
+.carousel .carousel-element.active > *{
+    filter: unset;
+    scale: 1;
+}
