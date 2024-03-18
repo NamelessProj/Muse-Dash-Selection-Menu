@@ -1,45 +1,3 @@
-/*const projects = [
-    {"Name": "Pizza Lord"},
-    {"Name": "Number Wizard"},
-    {"Name": "Tic Tac Toe"},
-    {"Name": "Hangman"},
-    {"Name": "Calculator"},
-    {"Name": "My Portfolio (here)"},
-    {"Name": "Nonogram"},
-    {"Name": "My Visual Novel Library"}
-];
-
-let isAutoplay = true;
-let intervalId;
-
-const sliderContainerWrapper = document.getElementById('projectsWrapper');
-const sliderContainer = document.getElementById('menuContainer');
-const arrowButtons = document.querySelectorAll('#arrowsContainer .arrow');
-
-projects.forEach(proj => {
-    sliderContainer.innerHTML += `<li class="slide"><div class="slide-container">${proj.Name}</div></li>`;
-});
-
-const firstSlideWidth = sliderContainer.querySelector('.slide').offsetWidth;
-console.log(firstSlideWidth)
-const slideMargin = sliderContainer.querySelector('.slide:nth-child(2)').offsetLeft - firstSlideWidth;
-console.log(slideMargin)
-
-let slidePerView = Math.round(sliderContainer.offsetWidth / firstSlideWidth);
-
-arrowButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        sliderContainer.scrollLeft += btn.id === 'arrowLeft' ? -firstSlideWidth - slideMargin : firstSlideWidth + slideMargin;
-    });
-});
-
-const projectsSlides = sliderContainer.querySelectorAll('.slide');*/
-
-
-
-
-
-
 // MY PROJECTS
 const projects = [
     {"Name": 'Project 1', "Links": 1},
@@ -111,8 +69,6 @@ function rotateCarousel(direction){
 
         }else index--;
     }
-
-    console.log(`==== ${index} | ${projects.length} ====`);
 
     // GETTING INFOS OF THE SELECTED PROJECTS
     let selectedIndexProject = index === projects.length ? projects[0] : projects[index];
